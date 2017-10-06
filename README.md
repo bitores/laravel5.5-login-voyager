@@ -1,6 +1,6 @@
-# Hanalei
+# laravel5.5-login-voyager
 
-Hanalei is a Laravel 5.5 install with a couple prebuilt features included.
+This is a Laravel 5.5 install with a couple prebuilt features included.
 
 Features:
 * Laravel 5.5
