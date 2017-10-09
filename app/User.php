@@ -5,15 +5,17 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-// use Illuminate\Database\Eloquent\Model;
-// use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 // use jeremykenedy\LaravelRoles\Traits\HasRoleAndPermission;
 
 class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;
     // use HasRoleAndPermission;
-    // use SoftDeletes;
+    use SoftDeletes;
+    // 
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -49,5 +51,10 @@ class User extends \TCG\Voyager\Models\User
     public function social()
     {
         return $this->hasMany('App\Models\Social');
+    }
+
+
+    public function isAdmin(){
+        return $this->role_id == 1 ? 'admin':'home';
     }
 }
